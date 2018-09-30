@@ -1,0 +1,65 @@
+@import '../../assets/palette.sass';
+
+.task{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1%;
+    border-bottom: 2px solid $divider-color;
+    .title{
+        display: flex;
+        flex-flow: row wrap;
+        // justify-content: space-around;
+        align-items: center;
+        width: 80%;
+        .check{
+            margin: 2%;
+            width: 30px;
+            height: 30px;
+            border: black 2px solid;
+        }
+        h3{
+            display: flex;
+            width:80%;
+        }
+    }
+    .time{
+        width: 19%;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        a{
+            display: flex;
+            width:100%;
+            justify-content: center;
+            button{
+
+                width: 60%;
+                height: 30px;
+                border-radius: 10px;
+                background: $primary-color;
+                font-weight: bold;
+                // font-size: 1.2rem;
+                color:$primary-color-text;
+            }
+        }
+
+    }
+}
+
+@media(max-width:500px){
+.task{
+    font-size: .85rem;
+    padding: 3%;
+    .title{
+        .check{
+            width: 15px;
+            height: 15px;
+
+        }
+       
+    }
+}
+}
