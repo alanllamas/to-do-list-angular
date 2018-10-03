@@ -1,12 +1,12 @@
-<section class="task">
+<section class="task"  *ngIf="task.done==1">
   <div class="title">
-    <div class="check">
+    <div class="check" [ngClass]="{fail: 1>task.duration, success: task.duration>0}">
 
     </div>
-    <h3>Crear Template Principal con tarea muy larga</h3>
+    <h3>{{task.name}}</h3>
   </div>
   <div class="time">
-    <h3>30 min</h3>
+    <h3>{{task.duration}} min</h3>
    
     <!-- <a routerLink="/done-detail" routerLinkActive="active"> <button>Detail</button></a> -->
   </div>

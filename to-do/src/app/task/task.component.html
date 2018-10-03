@@ -1,12 +1,12 @@
-<section class="task">
-  <div class="title">
+<section class="task" [ngClass]="{emergency: task.priority==='4',high: task.priority==='3',medium: task.priority==='2',low: task.priority==='1'}"  *ngIf="task.done==0 && task.duration>0">
+  <div class="title" >
     <div class="check">
 
     </div>
-    <h3>Crear Template Principal con tarea muy larga</h3>
+    <h3>{{task.name}}</h3>
   </div>
   <div class="time">
-    <h3>30 min</h3>
+    <h3>{{task.duration}} min</h3>
    
     <a routerLink="/detail" routerLinkActive="active"> <button>Go</button></a>
   </div>
