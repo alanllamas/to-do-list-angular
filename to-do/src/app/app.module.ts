@@ -14,13 +14,15 @@ import { TaskDoneDetailComponent } from './task-done-detail/task-done-detail.com
 import { TaskDoneComponent } from './task-done/task-done.component';
 import { TaskService } from './task.service';
 
+import { OrderModule } from 'ngx-order-pipe';
+
 
 const appRoutes: Routes = [
   { path: '', component: TaskListComponent },
   { path: 'done', component: TaskDoneListComponent },
   { path: 'new', component: NewTaskComponent },
-  { path: 'detail', component: TaskDetailComponent },
-  { path: 'done-detail', component: TaskDoneDetailComponent },
+  { path: 'detail/:id', component: TaskDetailComponent },
+  { path: 'done-detail/:id', component: TaskDoneDetailComponent },
   
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -40,6 +42,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    OrderModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

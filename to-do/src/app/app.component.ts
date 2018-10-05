@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import './task/task.component';
+import { TaskService } from './task.service';
+import { User } from './shared/user.model';
+import { Task } from './shared/task.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +19,8 @@ export class AppComponent {
   time ;
   interval;
   d;
+  user_list:User[];
+  task_list:Task[];
   
   checkTime:Function = () => {
     this.d = new Date();
@@ -26,9 +31,15 @@ export class AppComponent {
     this.time = `${this.hours}:${this.minutes}`;
     // console.log(`time ${this.time}`);
   };
-  constructor(){
+  constructor(private taskService: TaskService){
 
     this.interval = setInterval(this.checkTime, 1000)
+    this.taskService.fetchUsers().subscribe((users:User[]) => {
+      this.user_list = users;
+      this.task_list = users[0].tasks;
+      console.log(this.user_list);
+      
+    })
 
   }
   onInit(){

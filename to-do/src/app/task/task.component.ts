@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import  { Task } from '../shared/task.model';
 
+   
+
 @Component({
   selector: 'task',
   templateUrl: './task.component.html',
@@ -12,6 +14,8 @@ export class TaskComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
   }
+ 
 
 }

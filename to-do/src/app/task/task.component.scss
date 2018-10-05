@@ -4,19 +4,19 @@
 
 .emergency{
     //  background: lighten($color:#D32F2F, $amount: 5);
-     border-left: 3px solid lighten($color:#D32F2F, $amount: 5);
+     border-left: 5px solid lighten($color:#D32F2F, $amount: 5);
     }
 .high{
     //  background: lighten($color:#F57C00, $amount: 5);
-     border-left: 3px solid lighten($color:#F57C00, $amount: 5);
+     border-left: 5px solid lighten($color:#F57C00, $amount: 5);
     }
 .medium{
     //  background: lighten($color:#FBC02D, $amount: 5);
-     border-left: 3px solid lighten($color:#FBC02D, $amount: 5);
+     border-left: 5px solid lighten($color:#FBC02D, $amount: 5);
     }
 .low{
     //  background: lighten($color:#CFD8DC, $amount: 5);
-     border-left: 3px solid lighten($color:#CFD8DC, $amount: 5);
+     border-left: 5px solid lighten($color:#CFD8DC, $amount: 5);
     }
 .done{display: none}
 

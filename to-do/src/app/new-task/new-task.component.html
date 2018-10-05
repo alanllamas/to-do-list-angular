@@ -1,18 +1,25 @@
 <div class="container">
   <h1>Create a new task</h1>
 
-  <form action="">
+  <form method="POST">
     <fieldset>
       <legend>Info</legend>
       <input type="text" id="name" placeholder="name">
       <input type="number" placeholder="duration" name="duration" id="duration">
       <input type="date" name="dead-line" placeholder="dead line" id="dead-line">
+      <select name="priority" aria-placeholder="priority" id="priority">
+        <option *ngFor="let choice of choices" value="choice[0]">{{choice[1]}}</option>
+      </select>
+      <select name="user" aria-placeholder="user" id="user">
+        <option *ngFor="let user of users" value="user.id">{{user.username}}</option>
+      </select>
     </fieldset>
     <fieldset>
       <legend>Description</legend>
       <textarea name="description"  id="description" cols="30" rows="10"></textarea>
-      <input type="submit" id="submit" value="Add task">
+      <!-- <input type="submit" id="submit" value="Add task"> -->
     </fieldset>
-      
+    
+    <button (onclick)="this.addTask()" >Add task</button>
   </form>
 </div>

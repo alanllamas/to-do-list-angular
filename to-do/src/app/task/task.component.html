@@ -6,8 +6,16 @@
     <h3>{{task.name}}</h3>
   </div>
   <div class="time">
-    <h3>{{task.duration}} min</h3>
+    <h3 *ngIf="!task.time_remaining">{{task.duration}} min</h3>
+    <h3 *ngIf="task.time_remaining">{{task.time_remaining}} min</h3>
+    <!-- if (!this.task_detail.time_remaining) {
+
+        
+      this.time = this.task_detail.duration;
+    }else{
+      this.time = this.task_detail.time_remaining
+    } -->
    
-    <a routerLink="/detail" routerLinkActive="active"> <button>Go</button></a>
+    <a [routerLink]="['/detail/', task.id]" routerLinkActive="active"> <button>Go</button></a>
   </div>
 </section>
