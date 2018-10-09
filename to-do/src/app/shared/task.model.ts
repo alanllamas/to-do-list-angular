@@ -11,10 +11,10 @@ export interface Task {
     priority : String,
     dead_line : Date
     user: User,
-    done : Boolean,
-    time_done : number,
-    time_remaining : number,
-    PRIORITY_CHOICES : [object]
+    done? : Boolean,
+    time_done? : number,
+    time_remaining? : number,
+    PRIORITY_CHOICES? : [object]
     created ?: Date,
     modified ?: Date,
     

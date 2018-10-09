@@ -36,7 +36,7 @@ export class AppComponent {
     this.interval = setInterval(this.checkTime, 1000)
     this.taskService.fetchUsers().subscribe((users:User[]) => {
       this.user_list = users;
-      this.task_list = users[0].tasks;
+      // this.task_list = users[0].tasks;
       console.log(this.user_list);
       
     })

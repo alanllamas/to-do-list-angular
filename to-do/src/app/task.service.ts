@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable, throwError  } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/add/operator/map';
+import { Observable} from 'rxjs';
 
 
 import { Task } from './shared/task.model';
@@ -13,7 +9,6 @@ import { User } from './shared/user.model';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    // 'Authorization': 'my-auth-token'
   })
 };
 
@@ -42,35 +37,17 @@ export class TaskService {
   updateask( task_id: number, task : Task) {
     return this.http.put(`${this.endpointUrl}/detail/${task_id}/`,JSON.stringify(task),httpOptions)
   }
-  updateTask(task_id: number, param: any): Observable<any> {
-    console.log('updateTask');
-    
-    let body = JSON.stringify(param);
-    console.log('updateTask body');
+  updateTask(task_id: number, task: Task): Observable<any> {
+
     return this.http
-      .patch(`${this.endpointUrl}/detail/${task_id}/`, param)
-      // .subscribe(
-      //   data => {
-      //       console.log("PUT Request is successful ", data);
-      //   },
-      //   error => {
-      //       console.log("Error", error);
-      //   }
-      // );  
-       
+      .patch(`${this.endpointUrl}/detail/${task_id}/`, task,httpOptions)
   }     
 
 
   addTask (task: Task): Observable<Task> {
-    return this.http.post<Task>(`${this.endpointUrl}/list/`, task)      
+    return this.http.post<Task>(`${this.endpointUrl}/list/`, task, httpOptions)      
 
   }
-  handleError(error: any) {
-    let errMsg = (error.message) ? error.message :
-        error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg);
-    return Observable.throw(errMsg);
-}
 
   fetchUsers(): Observable<User[]> {
     return  this.http.get<User[]>(`${this.endpointUrl}/user/list/`)

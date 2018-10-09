@@ -26,23 +26,19 @@ export class TaskDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params)=>{
       this.task_id = params.id;
-      console.log('params: ',params);
-      
+      // console.log('params: ',params);
     })
     this.taskService.fetchTask(this.task_id).subscribe((task) =>{
       this.task_detail = task;
-      console.log(this.task_detail);
-      
+      // console.log(this.task_detail);
     })
     setTimeout(()=>{
       if (!this.task_detail.time_remaining) {
-
-        
         this.time = this.task_detail.duration;
       }else{
         this.time = this.task_detail.time_remaining
       }
-      console.log(`clock started ${this.time}`);
+      // console.log(`clock started ${this.time}`);
       this.runClock()
     },1000)
   }
@@ -52,7 +48,6 @@ export class TaskDetailComponent implements OnInit {
     if (!done) {
       task.time_remaining = this.time;
     }else{
-
       task.time_done = Number(task.duration) - this.time;
     }
     console.log(task);
@@ -65,10 +60,6 @@ export class TaskDetailComponent implements OnInit {
             console.log("Error", error);
         }
       );  
-    // setTimeout(() => {
-    //   window.location.pathname = "/"
-    // }, 2000);
-
   }
   runClock = () => {
     setInterval(() => {

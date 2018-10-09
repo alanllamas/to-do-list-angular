@@ -14,8 +14,8 @@ import { TaskDoneDetailComponent } from './task-done-detail/task-done-detail.com
 import { TaskDoneComponent } from './task-done/task-done.component';
 import { TaskService } from './task.service';
 
-import { OrderModule } from 'ngx-order-pipe';
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: TaskListComponent },
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    OrderModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
