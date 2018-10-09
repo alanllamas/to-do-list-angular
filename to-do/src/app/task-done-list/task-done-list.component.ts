@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../task.service';
+import { Task } from '../shared/task.model';
 
 @Component({
   selector: 'task-done-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskDoneListComponent implements OnInit {
 
-  constructor() { }
+  doneTasks;
+  constructor(private taskService : TaskService ) { }
 
   ngOnInit() {
+    this.taskService.fetchTasks().subscribe((tasks) => {
+         
+       console.log('tasks', tasks);
+       return this.doneTasks = tasks;
+     })
   }
 
 }

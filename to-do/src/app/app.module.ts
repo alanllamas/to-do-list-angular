@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'; 
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
@@ -11,13 +12,17 @@ import { TaskDoneListComponent } from './task-done-list/task-done-list.component
 import { NewTaskComponent } from './new-task/new-task.component';
 import { TaskDoneDetailComponent } from './task-done-detail/task-done-detail.component';
 import { TaskDoneComponent } from './task-done/task-done.component';
+import { TaskService } from './task.service';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: TaskListComponent },
   { path: 'done', component: TaskDoneListComponent },
   { path: 'new', component: NewTaskComponent },
-  { path: 'detail', component: TaskDetailComponent },
-  { path: 'done-detail', component: TaskDoneDetailComponent },
+  { path: 'detail/:id', component: TaskDetailComponent },
+  { path: 'done-detail/:id', component: TaskDoneDetailComponent },
   
   { path: '**', component: PageNotFoundComponent }
 ];
@@ -36,12 +41,15 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     )
+
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
