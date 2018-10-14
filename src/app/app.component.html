@@ -7,13 +7,25 @@
     <a routerLink="/done" routerLinkActive="active">Done</a>
     <!-- <a routerLink="/new" routerLinkActive="active">Chart</a> -->
   </ul>
+  <!-- ; logged[0].first_name || logged[0].last_name;   ; !logged[0].first_name && !logged[0].last_name; -->
+  <div class="user">
+    <p *ngIf="logged[0]" [ngClass]="{hide : !!logged[0].first_name == false && !!logged[0].last_name == false}" (click)="showDropdown()">{{logged[0].first_name}} {{logged[0].last_name}} </p>
+    <p *ngIf="logged[0]" [ngClass]="{hide : !!logged[0].first_name == true  && !!logged[0].last_name == true}" (click)="showDropdown()">{{logged[0].username}}</p>
+    <!-- <p *ngIf="!logged">{{logged.username}} </p> -->
+     
+    <div class="dropdown" *ngIf="dropdown">
+  
+      <p  *ngIf="logged[0]" (click)="logout()">Logout</p>
+    </div>
+    
+  </div>
 </nav>
 <section class="clock">
   <p>{{date}}</p> 
   <p>{{time}}</p>
 </section>
-<section class="container">
-  <router-outlet></router-outlet>
+<section class="container" >
+  <router-outlet ></router-outlet>
 </section>
 
 

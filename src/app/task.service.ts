@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable} from 'rxjs';
 
 
-import { Task } from './shared/task.model';
-import { User } from './shared/user.model';
+import { Task } from './shared/models/task.model';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
+    // 'Token': 'Authorization ${}'
   })
 };
 
@@ -45,13 +46,11 @@ export class TaskService {
 
 
   addTask (task: Task): Observable<Task> {
-    return this.http.post<Task>(`${this.endpointUrl}/list/`, task, httpOptions)      
+    return this.http.post<Task>(`${this.endpointUrl}/list/`, task)      
 
   }
 
-  fetchUsers(): Observable<User[]> {
-    return  this.http.get<User[]>(`${this.endpointUrl}/user/list/`)
-  }
+ 
 
 }
 

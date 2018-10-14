@@ -1,5 +1,3 @@
-import { Task } from "./task.model";
-
 export interface User {
 
     id?: Number, // string // UUID
@@ -7,8 +5,9 @@ export interface User {
     first_name: String,
     last_name: String,
     email: String,
-    url: String,
-    tasks: [Task],
+    password?:String,
+    url?: String,
+    tasks?: [string],
 
     created ?: Date,
     modified ?: Date,

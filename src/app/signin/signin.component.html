@@ -1,0 +1,51 @@
+<div class="main-container">
+    <h2>Sign In</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required and should match</div>
+            </div>
+            <label for="Cpassword">Confirm Password</label>
+            <input type="password" formControlName="Cpassword" [ngClass]="{ 'is-invalid': submitted && (password !== Cpassword) }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required and should match</div>
+            </div>
+        </div>
+        <div>
+            <label for="first_name">First name</label>
+            <input type="text" formControlName="first_name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }" />
+            <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                <div *ngIf="f.first_name.errors.required">First name is required</div>
+            </div>
+        </div>
+        <div>
+            <label for="last_name">Last name</label>
+            <input type="text" formControlName="last_name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }" />
+            <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                <div *ngIf="f.last_name.errors.required">Last name is required</div>
+            </div>
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input type="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Valid e-mail is required</div>
+            </div>
+        </div>
+        <div>
+            <button (click)="onSubmit()" class="btn btn-primary">Sign in</button>
+            
+        </div>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+    </form>
+
+</div>

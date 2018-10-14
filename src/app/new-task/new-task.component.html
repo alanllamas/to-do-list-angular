@@ -3,25 +3,24 @@
  
   <form [formGroup]="task_form" (ngSubmit)="addTask()">
     <fieldset>
-      <legend>Info</legend>
+
       <input type="text" formControlName="name" id="name" placeholder="name">
       <input type="number" placeholder="duration" name="duration" formControlName="duration" id="duration">
+      <label for="dead-line">Dead line</label>
       <input type="date" name="dead-line" placeholder="dead line" formControlName="dead_line" id="dead-line">
+      <label for="priority">Priority</label>
       <select name="priority" aria-placeholder="priority" formControlName="priority" id="priority">
+        <!-- <option value="" disabled selected  hidden>Select your option</option> -->
         <option *ngFor="let choice of choices" [ngValue]="choice[0]">{{choice[1]}}</option>
       </select>
-      <select name="user" aria-placeholder="user" formControlName="user" id="user">
+      <!-- <select name="user" aria-placeholder="user" formControlName="user" id="user">
         <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
-      </select>
+      </select> -->
     </fieldset>
     <fieldset>
       <legend>Description</legend>
       <textarea name="description"  formControlName="description" id="description" cols="30" rows="10"></textarea>
       <input type="submit" id="submit" value="Add task">
     </fieldset>
-    <p>
-      Form Status: {{ task_form }}
-    </p>
-    <!-- <button (onclick)="addTask()" >Add task</button> -->
   </form>
 </div>
