@@ -2,6 +2,11 @@
 
 to use this project follow these instructions
 
+first you should clone and install the api locally  from
+
+https://github.com/alanllamas/to-do-list-django
+
+
 clone de repository
 
 ````
