@@ -51,7 +51,7 @@ export class AuthService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.loggedUser = []
-    window.location.pathname = "/login"
+    
   }
 
 }

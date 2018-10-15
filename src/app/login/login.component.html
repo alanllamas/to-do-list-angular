@@ -19,7 +19,7 @@
             <button [disabled]="loading" class="btn btn-primary">Login</button>
             
         </div>
-        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <div *ngIf="error" class="alert alert-danger">{{error.error.non_field_errors[0] | json}}</div>
     </form>
     <button routerLink="/signin" routerLinkActive="active" class="btn btn-primary">Sign in</button>
 </div>

@@ -69,6 +69,7 @@ export class AppComponent {
     console.log("logout");
     
     this.authService.logout()
+    window.location.pathname = "/login"
   }
 
 }
