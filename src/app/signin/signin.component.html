@@ -45,7 +45,7 @@
             <button (click)="onSubmit()" class="btn btn-primary">Sign in</button>
             
         </div>
-        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+        <div *ngIf="error" class="alert alert-danger">{{error.error.non_field_errors[0] | json}}</div>
     </form>
 
 </div>
