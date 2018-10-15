@@ -48,7 +48,7 @@ export class TaskDetailComponent implements OnInit {
     if (!done) {
       task.time_remaining = this.time;
     }else{
-      task.time_done = Number(task.duration) - this.time;
+      task.time_done = Number(task.duration) - Number(this.time);
     }
     console.log(task);
     task.done = done;

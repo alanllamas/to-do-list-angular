@@ -41,7 +41,7 @@
     <!-- <button class="stop">Stop</button> -->
     <!-- <a routerLink="/" id="pause" routerLinkActive="active">
     </a> -->
-    <button  (click)="this.handleDetail(task_detail,this.time,false,'/')" routerLink="/" id="pause" routerLinkActive="active">Pause</button>
+    <a  routerLink="/" id="pause" routerLinkActive="active"> <button  (click)="this.handleDetail(task_detail,this.time,false,'/')" >Pause</button></a>
     <!-- <button class="end">Finish</button> -->
     <a  routerLink="/done" id="stop" routerLinkActive="active"><button (click)="this.handleDetail(task_detail,this.time,true,'/')" class="end">Stop</button></a>
   </footer>
